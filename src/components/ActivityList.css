@@ -1,0 +1,52 @@
+.activity-card {
+  padding: 24px;
+}
+
+.activity-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.activity-header h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #171927;
+}
+
+.activity-header button {
+  border: none;
+  background: transparent;
+  color: #6d4aff;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.activity-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 14px 0;
+  border-bottom: 1px solid #f0f0f2;
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-item strong {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.activity-item span {
+  font-size: 12px;
+  color: #71717a;
+}

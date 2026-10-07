@@ -1,0 +1,26 @@
+.chart-card {
+  margin-top: 20px;
+  padding: 24px;
+}
+
+.chart-header {
+  margin-bottom: 24px;
+}
+
+.chart-header h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #171927;
+}
+
+.chart-header p {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: #71717a;
+}
+
+.chart-container {
+  width: 100%;
+  height: 300px;
+}

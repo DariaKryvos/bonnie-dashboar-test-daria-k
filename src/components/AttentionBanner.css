@@ -1,0 +1,46 @@
+.attention-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 14px 18px;
+  margin-bottom: 20px;
+
+  background: #fffaf0;
+  border: 1px solid #f5dfb3;
+  border-radius: 12px;
+}
+
+.attention-message {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.attention-message svg {
+  color: #b7791f;
+}
+
+.attention-message strong {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.attention-message p {
+  margin: 3px 0 0;
+
+  font-size: 12px;
+  color: #71717a;
+}
+
+.attention-button {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: 0;
+  background: transparent;
+  color: #6d4aff;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+}

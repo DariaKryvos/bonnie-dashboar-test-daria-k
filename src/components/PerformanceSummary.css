@@ -1,0 +1,49 @@
+.performance-card {
+  margin-top: 20px;
+  padding: 24px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.performance-heading h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #171927;
+}
+
+.performance-heading p {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: #71717a;
+}
+
+.performance-metrics {
+  display: flex;
+  gap: 48px;
+}
+
+.performance-metrics div {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.performance-metrics span {
+  font-size: 12px;
+  color: #71717a;
+}
+
+.performance-metrics strong {
+  font-size: 20px;
+}
+
+@media (max-width: 1000px) {
+  .performance-card {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 24px;
+  }
+}
