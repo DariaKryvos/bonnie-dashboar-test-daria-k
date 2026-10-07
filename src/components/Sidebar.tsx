@@ -1,4 +1,5 @@
 import "./Sidebar.css";
+import { useEffect, useRef, useState } from "react";
 import {
   LayoutDashboard,
   Phone,
@@ -6,44 +7,89 @@ import {
   MessageSquare,
   Settings,
   Bot,
+  Menu,
+  X,
 } from "lucide-react";
 
-export function Sidebar() {
+const navigationItems = [
+  { label: "Overview", icon: LayoutDashboard, active: true },
+  { label: "Calls", icon: Phone },
+  { label: "Reservations", icon: CalendarDays },
+  { label: "Messages", icon: MessageSquare },
+];
+
+function Logo() {
   return (
-    <aside className="sidebar">
-      <div className="logo">
-        <Bot size={22} />
-        <span>Bonnie</span>
-      </div>
+    <div className="logo">
+      <Bot size={22} aria-hidden="true" />
+      <span>Bonnie</span>
+    </div>
+  );
+}
 
-      <nav className="nav">
-        <a className="nav-item active">
-          <LayoutDashboard size={18} />
-          <span>Overview</span>
-        </a>
+export function Sidebar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuButton = useRef<HTMLButtonElement>(null);
+  const MenuIcon = menuOpen ? X : Menu;
 
-        <a className="nav-item">
-          <Phone size={18} />
-          <span>Calls</span>
-        </a>
+  useEffect(() => {
+    if (!menuOpen) return;
 
-        <a className="nav-item">
-          <CalendarDays size={18} />
-          <span>Reservations</span>
-        </a>
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+        menuButton.current?.focus();
+      }
+    };
+    const desktop = window.matchMedia("(min-width: 769px)");
+    const closeOnDesktop = () => {
+      if (desktop.matches) setMenuOpen(false);
+    };
 
-        <a className="nav-item">
-          <MessageSquare size={18} />
-          <span>Messages</span>
-        </a>
-      </nav>
+    window.addEventListener("keydown", closeOnEscape);
+    desktop.addEventListener("change", closeOnDesktop);
+    return () => {
+      window.removeEventListener("keydown", closeOnEscape);
+      desktop.removeEventListener("change", closeOnDesktop);
+    };
+  }, [menuOpen]);
 
-      <div className="sidebar-bottom">
-        <a className="nav-item">
-          <Settings size={18} />
-          <span>Settings</span>
-        </a>
-      </div>
-    </aside>
+  return (
+    <>
+      <header className="mobile-navigation">
+        <Logo />
+        <button
+          ref={menuButton}
+          type="button"
+          className="mobile-menu-button"
+          aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+          aria-expanded={menuOpen}
+          aria-controls="dashboard-navigation"
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <MenuIcon size={22} aria-hidden="true" />
+        </button>
+      </header>
+      <aside
+        id="dashboard-navigation"
+        className={`sidebar${menuOpen ? " sidebar-open" : ""}`}
+      >
+        <Logo />
+        <nav className="nav" aria-label="Main navigation">
+          {navigationItems.map(({ label, icon: Icon, active }) => (
+            <a key={label} className={`nav-item${active ? " active" : ""}`}>
+              <Icon size={18} aria-hidden="true" />
+              <span>{label}</span>
+            </a>
+          ))}
+        </nav>
+        <div className="sidebar-bottom">
+          <a className="nav-item">
+            <Settings size={18} aria-hidden="true" />
+            <span>Settings</span>
+          </a>
+        </div>
+      </aside>
+    </>
   );
 }

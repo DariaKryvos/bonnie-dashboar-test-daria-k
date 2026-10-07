@@ -4,8 +4,10 @@
 
 .activity-header {
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
   justify-content: space-between;
+  gap: 12px;
   margin-bottom: 20px;
 }
 
@@ -17,11 +19,39 @@
 }
 
 .activity-header button {
-  border: none;
-  background: transparent;
-  color: #6d4aff;
-  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  gap: 5px;
+  padding: 6px 9px;
+  border: 1px solid #e7defe;
+  border-radius: 10px;
+  background: #fff;
+  color: #6743df;
+  box-shadow: 0 2px 4px rgba(57, 35, 100, 0.04);
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.5;
   cursor: pointer;
+  transition: background 160ms ease, border-color 160ms ease;
+}
+
+.activity-header button:hover {
+  background: #f5f0ff;
+  border-color: #cbb9fb;
+}
+
+.activity-header button:focus-visible {
+  outline: 3px solid #b7a1f5;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .activity-header button {
+    transition: none;
+  }
 }
 
 .activity-list {

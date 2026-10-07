@@ -13,8 +13,8 @@ export function MetricCard({ title, value, change, highlight = false, icon: Icon
   return (
     <article className={`metric-card ${highlight ? "highlight" : ""}`}>
       <div className="metric-header">
-        <div className="metric-icon">
-          <Icon size={18} />
+        <div className="metric-icon" aria-hidden="true">
+          <Icon size={18} strokeWidth={1.8} />
         </div>
         <p className="metric-title">
           {title}

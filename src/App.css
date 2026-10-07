@@ -5,6 +5,7 @@
 
 .dashboard {
   flex: 1;
+  min-width: 0;
   padding: 40px;
   background: #f8f8fa;
 }
@@ -34,13 +35,14 @@
 
 .metrics {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 16px;
 }
 
 .dashboard-content {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  align-items: stretch;
   gap: 20px;
   margin-top: 20px;
 }
@@ -73,7 +75,25 @@
 
 /* Placeholder while the chart chunk loads; matches the chart card's size */
 .chart-skeleton {
-  margin-top: 20px;
-  min-height: 420px;
+  min-height: 360px;
   box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column;
+  }
+
+  .dashboard {
+    padding: 24px 16px;
+  }
+
+  .dashboard-header {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .header-text h1 {
+    font-size: 24px;
+  }
 }

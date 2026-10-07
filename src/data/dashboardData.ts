@@ -3,6 +3,7 @@ import {
   Users,
   Euro,
   MessageSquare,
+  Phone
 } from "lucide-react";
 
 
@@ -20,17 +21,23 @@ export const metricsData = [
     icon: Users,
   },
   {
+    id: "messages",
+    title: "Messages",
+    value: "270",
+    icon: MessageSquare,
+  },
+   {
+    id: "calls",
+    title: "Calls handled",
+    value: "540",
+    icon: Phone,
+  },
+  {
     id: "reservation-value",
     title: "Reservation value",
     value: "€13,600",
     icon: Euro,
     highlight: true,
-  },
-  {
-    id: "messages",
-    title: "Messages",
-    value: "270",
-    icon: MessageSquare,
   },
 ];
 
@@ -103,4 +110,3 @@ export const activities = [
   },
 
 ];
-

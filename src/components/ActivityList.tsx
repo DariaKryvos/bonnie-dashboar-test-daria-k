@@ -1,4 +1,5 @@
 import "./ActivityList.css";
+import { ArrowRight } from "lucide-react";
 
 import { activities } from "../data/dashboardData";
 
@@ -9,8 +10,11 @@ export function ActivityList() {
 
     <section className="activity-card">
       <div className="activity-header">
-        <h2>Recent activity</h2>
-        <button>View all</button>
+        <h2>Recent conversations</h2>
+        <button type="button">
+          View all conversations
+          <ArrowRight size={13} aria-hidden="true" />
+        </button>
       </div>
       <div className="activity-list">
         {activities.map((activity) => (
